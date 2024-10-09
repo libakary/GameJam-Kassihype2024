@@ -1,0 +1,262 @@
+[gd_scene load_steps=38 format=3 uid="uid://b4nukc4nxctxi"]
+
+[ext_resource type="Script" path="res://scenes/screens/home_screen/home_screen.gd" id="1_phe53"]
+[ext_resource type="Script" path="res://scenes/interaction/ShutdownTimer.gd" id="2_274hu"]
+[ext_resource type="FontFile" uid="uid://cngqku3pww2as" path="res://scenes/screens/ARIALBD.TTF" id="3_s43vp"]
+[ext_resource type="Script" path="res://scenes/interaction/TimeRemaining.gd" id="4_ha17e"]
+[ext_resource type="Texture2D" uid="uid://bd7d7w1bpd6rm" path="res://scenes/screens/home_screen/CATNET_main_notext.jpg" id="5_0v0da"]
+[ext_resource type="Texture2D" uid="uid://dwysornxw042" path="res://scenes/screens/home_screen/catnettimeout.webp" id="6_lqmtb"]
+[ext_resource type="AudioStream" uid="uid://by3qaylyojk3r" path="res://audio/2007dressup_8000hz_8bit_backing.wav" id="7_brb07"]
+[ext_resource type="Texture2D" uid="uid://2pcoh34syhhy" path="res://scenes/screens/CATNET_popup.png" id="8_odxip"]
+[ext_resource type="PackedScene" uid="uid://de2hjf0tyr3w8" path="res://scenes/objects/platvorm-clickable.tscn" id="9_qb4vh"]
+[ext_resource type="Texture2D" uid="uid://b6wnnuvhtne4l" path="res://scenes/screens/home_screen/CATNET_main_bluetexts1.png" id="10_khkok"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/platformmusic.gd" id="11_wa87u"]
+[ext_resource type="AudioStream" uid="uid://bvydaemrftrgn" path="res://audio/Click2.wav" id="12_hxlu0"]
+[ext_resource type="Texture2D" uid="uid://bvdo7csucmhh2" path="res://scenes/screens/home_screen/CATNET_main_valge1.png" id="13_ebmx7"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/highlighted_downloading.gd" id="14_d1g17"]
+[ext_resource type="Texture2D" uid="uid://b0qc4fx6lfxjk" path="res://scenes/screens/home_screen/CATNET_main_bluetext3.png" id="15_aip0l"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/platformfashion.gd" id="16_xuboj"]
+[ext_resource type="Texture2D" uid="uid://wkhp6vaq6n72" path="res://scenes/screens/home_screen/CATNET_main_valge3.png" id="17_dss1q"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/highlighted_fashion.gd" id="18_r0ovw"]
+[ext_resource type="Texture2D" uid="uid://bc31plbci8tx8" path="res://scenes/screens/home_screen/CATNET_main_bluetexts2.png" id="20_e1op1"]
+[ext_resource type="Script" path="res://scenes/objects/platforms/platformpets.gd" id="21_ltc8j"]
+[ext_resource type="Texture2D" uid="uid://cin8wtf8hxdtq" path="res://scenes/screens/home_screen/CATNET_main_valge2.png" id="22_l6pbc"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/highlighted_baby.gd" id="23_2ruu4"]
+[ext_resource type="PackedScene" uid="uid://c1tnhyamr4o4g" path="res://scenes/objects/platvorm.tscn" id="24_f76a1"]
+[ext_resource type="Texture2D" uid="uid://c23s133sx2b50" path="res://scenes/screens/home_screen/CATNET_main_blacktest2.png" id="25_sun1h"]
+[ext_resource type="Texture2D" uid="uid://dvr5skiugera8" path="res://scenes/screens/home_screen/CATNET_main_blacktest3.png" id="26_dhopd"]
+[ext_resource type="Texture2D" uid="uid://bfpan4ds1ro7f" path="res://scenes/screens/home_screen/CATNET_main_blacktest4.png" id="27_8it31"]
+[ext_resource type="Texture2D" uid="uid://cac4pdxlafbq5" path="res://scenes/screens/home_screen/CATNET_main_tekst1.png" id="28_vswf4"]
+[ext_resource type="PackedScene" uid="uid://vdrdug4mv88u" path="res://scenes/player/hyppekass.tscn" id="29_8qu2s"]
+[ext_resource type="Script" path="res://scenes/screens/home_screen/test.gd" id="30_de058"]
+[ext_resource type="Texture2D" uid="uid://f2axkfhyyuja" path="res://scenes/objects/gameover-404-background.png" id="31_sa7to"]
+[ext_resource type="Script" path="res://scenes/screens/gameoverOverlay.gd" id="32_fwoa7"]
+[ext_resource type="AudioStream" uid="uid://d4k3mda6manek" path="res://audio/jdespawnfinal.wav" id="33_0c52x"]
+[ext_resource type="AudioStream" uid="uid://p4uxeao46svn" path="res://audio/jdespawn.wav" id="34_vpk2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76s4c"]
+size = Vector2(1780.83, 228.387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwut8"]
+size = Vector2(576, 112)
+
+[sub_resource type="Gradient" id="Gradient_jdvgg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8ip2"]
+gradient = SubResource("Gradient_jdvgg")
+
+[node name="HomeScreen" type="Node2D"]
+script = ExtResource("1_phe53")
+
+[node name="ShutdownTimer" type="Timer" parent="."]
+wait_time = 26.121
+one_shot = true
+autostart = true
+script = ExtResource("2_274hu")
+
+[node name="TimeRemaining" type="RichTextLabel" parent="ShutdownTimer"]
+offset_left = 632.0
+offset_top = 40.0
+offset_right = 678.0
+offset_bottom = 84.0
+theme_override_colors/default_color = Color(0.913725, 0.160784, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("3_s43vp")
+theme_override_font_sizes/normal_font_size = 36
+text = "0"
+scroll_active = false
+script = ExtResource("4_ha17e")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("5_0v0da")
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+scale = Vector2(1.3617, 1.35929)
+texture = ExtResource("6_lqmtb")
+
+[node name="background music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_brb07")
+volume_db = -5.943
+
+[node name="countdown" type="Sprite2D" parent="."]
+position = Vector2(513, 47)
+texture = ExtResource("8_odxip")
+
+[node name="platvorm-music" parent="." instance=ExtResource("9_qb4vh")]
+position = Vector2(160, 496)
+scale = Vector2(0.253082, 0.359289)
+
+[node name="downloading_music" type="Sprite2D" parent="platvorm-music"]
+position = Vector2(-2.54314e-06, -3.05176e-05)
+scale = Vector2(4.01846, 2.74464)
+texture = ExtResource("10_khkok")
+
+[node name="Area2D" type="Area2D" parent="platvorm-music"]
+position = Vector2(5.72205e-06, -7.62939e-06)
+scale = Vector2(0.307145, 0.456985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvorm-music/Area2D"]
+position = Vector2(12.8645, -54.8147)
+shape = SubResource("RectangleShape2D_76s4c")
+script = ExtResource("11_wa87u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="platvorm-music/Area2D"]
+position = Vector2(-0.00012207, 2.67029e-05)
+scale = Vector2(3.25579, 2.18826)
+stream = ExtResource("12_hxlu0")
+volume_db = 5.0
+
+[node name="highlighted_downloading" type="Sprite2D" parent="platvorm-music/Area2D"]
+visible = false
+position = Vector2(12.8646, 12.181)
+scale = Vector2(12.9277, 6.05272)
+texture = ExtResource("13_ebmx7")
+script = ExtResource("14_d1g17")
+
+[node name="platvorm-fashion" parent="." instance=ExtResource("9_qb4vh")]
+position = Vector2(840, 400)
+scale = Vector2(0.252024, 0.184144)
+
+[node name="create_looks" type="Sprite2D" parent="platvorm-fashion"]
+position = Vector2(0, -0.000131916)
+scale = Vector2(3.78436, 4.73596)
+texture = ExtResource("15_aip0l")
+
+[node name="Area2D" type="Area2D" parent="platvorm-fashion"]
+position = Vector2(-525, 16)
+scale = Vector2(0.307145, 0.456985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvorm-fashion/Area2D"]
+position = Vector2(1719.89, -160.242)
+shape = SubResource("RectangleShape2D_76s4c")
+script = ExtResource("16_xuboj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="platvorm-fashion/Area2D"]
+position = Vector2(1709.29, -35.0121)
+scale = Vector2(3.25579, 2.18826)
+stream = ExtResource("12_hxlu0")
+volume_db = 5.0
+
+[node name="highlighted_fashion" type="Sprite2D" parent="platvorm-fashion/Area2D"]
+visible = false
+position = Vector2(1709.29, -11.2453)
+scale = Vector2(12.0418, 10.5899)
+texture = ExtResource("17_dss1q")
+script = ExtResource("18_r0ovw")
+
+[node name="platvorm_pets" parent="." instance=ExtResource("9_qb4vh")]
+position = Vector2(395, 218)
+scale = Vector2(0.307145, 0.456985)
+
+[node name="adorable_baby" type="Sprite2D" parent="platvorm_pets"]
+scale = Vector2(3.30084, 2.13051)
+texture = ExtResource("20_e1op1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platvorm_pets"]
+shape = SubResource("RectangleShape2D_jwut8")
+
+[node name="Area2D" type="Area2D" parent="platvorm_pets"]
+position = Vector2(-2.09808e-05, 1.52588e-05)
+scale = Vector2(0.307145, 0.456985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvorm_pets/Area2D"]
+position = Vector2(0, -38.3077)
+shape = SubResource("RectangleShape2D_76s4c")
+script = ExtResource("21_ltc8j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="platvorm_pets/Area2D"]
+position = Vector2(-10.6003, -4.78849)
+scale = Vector2(3.25579, 2.18826)
+stream = ExtResource("12_hxlu0")
+volume_db = 5.0
+
+[node name="highlighted_baby" type="Sprite2D" parent="platvorm_pets/Area2D"]
+visible = false
+position = Vector2(10.6001, 9.53674e-07)
+scale = Vector2(10.7659, 5.03342)
+texture = ExtResource("22_l6pbc")
+script = ExtResource("23_2ruu4")
+
+[node name="platvorm" parent="." instance=ExtResource("24_f76a1")]
+position = Vector2(595, 408)
+scale = Vector2(0.170637, 0.182365)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm"]
+position = Vector2(0, -0.000167343)
+scale = Vector2(5.74531, 5.2774)
+texture = ExtResource("25_sun1h")
+
+[node name="platvorm2" parent="." instance=ExtResource("24_f76a1")]
+position = Vector2(393, 489)
+scale = Vector2(0.293082, 0.193164)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm2"]
+scale = Vector2(3.45303, 5.21764)
+texture = ExtResource("26_dhopd")
+
+[node name="platvorm3" parent="." instance=ExtResource("24_f76a1")]
+position = Vector2(734, 217)
+scale = Vector2(0.257435, 0.233263)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm3"]
+scale = Vector2(4.00582, 4.07261)
+texture = ExtResource("27_8it31")
+
+[node name="platvorm4" parent="." instance=ExtResource("24_f76a1")]
+position = Vector2(161, 221)
+scale = Vector2(0.259331, 0.413003)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm4"]
+scale = Vector2(3.76678, 2.27311)
+texture = ExtResource("28_vswf4")
+
+[node name="Hyppekass" parent="." instance=ExtResource("29_8qu2s")]
+position = Vector2(392, 130)
+
+[node name="StarterPosition" type="Marker2D" parent="."]
+position = Vector2(392, 131)
+
+[node name="test" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(920, 202)
+texture = SubResource("GradientTexture2D_r8ip2")
+
+[node name="Area2D" type="Area2D" parent="test"]
+visible = false
+position = Vector2(-525, 16)
+scale = Vector2(0.307145, 0.456985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test/Area2D"]
+visible = false
+position = Vector2(1689.76, -39.3886)
+shape = SubResource("RectangleShape2D_76s4c")
+script = ExtResource("30_de058")
+
+[node name="gameoverOverlay" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(512, 384)
+texture = ExtResource("31_sa7to")
+script = ExtResource("32_fwoa7")
+
+[node name="gameover_sound" type="AudioStreamPlayer2D" parent="gameoverOverlay"]
+stream = ExtResource("33_0c52x")
+
+[node name="hole_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_vpk2j")
+
+[connection signal="timeout" from="ShutdownTimer" to="gameoverOverlay" method="_on_shutdown_timer_timeout"]
+[connection signal="body_entered" from="platvorm-music/Area2D" to="platvorm-music/Area2D/CollisionShape2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="platvorm-music/Area2D" to="platvorm-music/Area2D/highlighted_downloading" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platvorm-music/Area2D" to="platvorm-music/Area2D/CollisionShape2D" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="platvorm-music/Area2D" to="platvorm-music/Area2D/highlighted_downloading" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="platvorm-fashion/Area2D" to="platvorm-fashion/Area2D/CollisionShape2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="platvorm-fashion/Area2D" to="platvorm-fashion/Area2D/highlighted_fashion" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platvorm-fashion/Area2D" to="platvorm-fashion/Area2D/CollisionShape2D" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="platvorm-fashion/Area2D" to="platvorm-fashion/Area2D/highlighted_fashion" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="platvorm_pets/Area2D" to="platvorm_pets/Area2D/CollisionShape2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="platvorm_pets/Area2D" to="platvorm_pets/Area2D/highlighted_baby" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platvorm_pets/Area2D" to="platvorm_pets/Area2D/CollisionShape2D" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="platvorm_pets/Area2D" to="platvorm_pets/Area2D/highlighted_baby" method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="test/Area2D" to="test/Area2D/CollisionShape2D" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="test/Area2D" to="test/Area2D/CollisionShape2D" method="_on_area_2d_body_entered"]

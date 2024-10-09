@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2bihf1m40868"]
+
+[ext_resource type="Script" path="res://scenes/screens/GameOverScreenScript.gd" id="1_3id27"]
+[ext_resource type="Texture2D" uid="uid://f2axkfhyyuja" path="res://scenes/objects/gameover-404-background.png" id="2_m1ylc"]
+[ext_resource type="Script" path="res://scenes/screens/gameoverOverlay.gd" id="3_vgrau"]
+[ext_resource type="AudioStream" uid="uid://d4k3mda6manek" path="res://audio/jdespawnfinal.wav" id="4_ip5si"]
+[ext_resource type="FontFile" uid="uid://cngqku3pww2as" path="res://scenes/screens/ARIALBD.TTF" id="5_2hrl3"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_3id27")
+
+[node name="gameoverOverlay" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("2_m1ylc")
+script = ExtResource("3_vgrau")
+
+[node name="gameover_sound" type="AudioStreamPlayer2D" parent="gameoverOverlay"]
+stream = ExtResource("4_ip5si")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 319.0
+offset_top = 560.0
+offset_right = 692.0
+offset_bottom = 595.0
+theme_override_colors/font_color = Color(0.913725, 0.160784, 0.160784, 1)
+theme_override_fonts/font = ExtResource("5_2hrl3")
+theme_override_font_sizes/font_size = 30
+text = "Press Enter or E to restart"

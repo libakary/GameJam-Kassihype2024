@@ -1,0 +1,137 @@
+[gd_scene load_steps=23 format=3 uid="uid://bpelpvigl5r"]
+
+[ext_resource type="Script" path="res://scenes/screens/level_one_screen.gd" id="1_lt4ly"]
+[ext_resource type="Texture2D" uid="uid://bh4pu3rylfokw" path="res://scenes/screens/level_three_music/CATNET_music_notext.png" id="2_ouu60"]
+[ext_resource type="AudioStream" uid="uid://by3qaylyojk3r" path="res://audio/2007dressup_8000hz_8bit_backing.wav" id="3_2378c"]
+[ext_resource type="PackedScene" uid="uid://vdrdug4mv88u" path="res://scenes/player/hyppekass.tscn" id="4_puorl"]
+[ext_resource type="PackedScene" uid="uid://c1tnhyamr4o4g" path="res://scenes/objects/platvorm.tscn" id="5_gjvnr"]
+[ext_resource type="Texture2D" uid="uid://d2jm2knoteq50" path="res://scenes/screens/level_one_pets/CATNET_pets_text1.png" id="6_csjw4"]
+[ext_resource type="Texture2D" uid="uid://jw6urjbos06j" path="res://scenes/screens/level_one_pets/CATNET_pets_text2.png" id="7_kx8ev"]
+[ext_resource type="Texture2D" uid="uid://b3yswino0rhgy" path="res://scenes/screens/level_one_pets/CATNET_pets_text3.png" id="8_oavvc"]
+[ext_resource type="Texture2D" uid="uid://u11xbssymse2" path="res://scenes/screens/level_one_pets/CATNET_pets_text4.png" id="9_tqsmj"]
+[ext_resource type="Texture2D" uid="uid://83ax3ca5feoy" path="res://scenes/screens/level_one_pets/CATNET_pets_text5.png" id="10_d03fg"]
+[ext_resource type="Script" path="res://scenes/screens/disc.gd" id="11_2ttb8"]
+[ext_resource type="Texture2D" uid="uid://bgbfxds8f4tdi" path="res://scenes/objects/cd/cd1.png" id="12_4p14f"]
+[ext_resource type="Texture2D" uid="uid://fd3r8a7dyy4c" path="res://scenes/objects/cd/cd2.png" id="13_dio5g"]
+[ext_resource type="Texture2D" uid="uid://yf6q5gv5y0qe" path="res://scenes/objects/cd/cd3.png" id="14_vur76"]
+[ext_resource type="Texture2D" uid="uid://cl0ra1ywgdu1k" path="res://scenes/objects/cd/cd4.png" id="15_csfsm"]
+[ext_resource type="Texture2D" uid="uid://dlnydldkime2d" path="res://scenes/objects/cd/cd5.png" id="16_f4w0t"]
+[ext_resource type="Texture2D" uid="uid://clgglfcivusfp" path="res://scenes/objects/cd/cd6.png" id="17_dq1rv"]
+[ext_resource type="Texture2D" uid="uid://b4753vmk342qh" path="res://scenes/objects/cd/cd7.png" id="18_abski"]
+[ext_resource type="Texture2D" uid="uid://b5y1773dpvlbo" path="res://scenes/objects/cd/cd8.png" id="19_kn24i"]
+[ext_resource type="Texture2D" uid="uid://bvwgs1enx7pla" path="res://scenes/objects/cd/cd9.png" id="20_vyx27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp5sf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf0k0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_4p14f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dio5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vur76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_csfsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_f4w0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dq1rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_abski")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_kn24i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vyx27")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[node name="level_one_screen" type="Node2D"]
+script = ExtResource("1_lt4ly")
+
+[node name="background_music" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("2_ouu60")
+
+[node name="background music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2378c")
+volume_db = -5.943
+
+[node name="Hyppekass" parent="." instance=ExtResource("4_puorl")]
+position = Vector2(864, 320)
+
+[node name="StarterPosition" type="Marker2D" parent="."]
+position = Vector2(864, 320)
+
+[node name="platvorm" parent="." instance=ExtResource("5_gjvnr")]
+position = Vector2(225, 212)
+scale = Vector2(0.449965, 0.192028)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm"]
+position = Vector2(3.3911e-05, 7.94611e-05)
+scale = Vector2(2.23998, 5.61168)
+texture = ExtResource("6_csjw4")
+
+[node name="platvorm2" parent="." instance=ExtResource("5_gjvnr")]
+position = Vector2(313, 540)
+scale = Vector2(0.74809, 0.199545)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm2"]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(1.33122, 4.89357)
+texture = ExtResource("7_kx8ev")
+
+[node name="platvorm3" parent="." instance=ExtResource("5_gjvnr")]
+position = Vector2(508, 305)
+scale = Vector2(0.296919, 0.21154)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm3"]
+position = Vector2(-8.3491e-05, 14.1814)
+scale = Vector2(3.35402, 4.61608)
+texture = ExtResource("8_oavvc")
+
+[node name="platvorm4" parent="." instance=ExtResource("5_gjvnr")]
+position = Vector2(782, 384)
+scale = Vector2(0.412491, 0.159672)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm4"]
+position = Vector2(4.84851, -0.000244141)
+scale = Vector2(2.41429, 6.11557)
+texture = ExtResource("9_tqsmj")
+
+[node name="platvorm5" parent="." instance=ExtResource("5_gjvnr")]
+position = Vector2(587, 463)
+scale = Vector2(0.13782, 0.179539)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm5"]
+position = Vector2(7.25586, -5.56982)
+scale = Vector2(7.22592, 5.43884)
+texture = ExtResource("10_d03fg")
+
+[node name="disc" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="disc"]
+position = Vector2(127, 161)
+scale = Vector2(3.86464, 2.95585)
+shape = SubResource("CircleShape2D_fp5sf")
+script = ExtResource("11_2ttb8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="disc"]
+position = Vector2(127, 161)
+scale = Vector2(0.673189, 0.556911)
+sprite_frames = SubResource("SpriteFrames_mf0k0")
+animation = &"spin"
+
+[connection signal="body_entered" from="disc" to="disc/CollisionShape2D" method="_on_disc_body_entered"]

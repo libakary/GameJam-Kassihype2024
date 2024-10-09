@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgt5pi6w60nyb"]
+
+[ext_resource type="Texture2D" uid="uid://dxkme0yo4axbt" path="res://scenes/screens/login_screen/CATNET_menu.png" id="1_m50ab"]
+[ext_resource type="Script" path="res://scenes/screens/login_screen.gd" id="1_po004"]
+[ext_resource type="Texture2D" uid="uid://wlfvjisy0epl" path="res://scenes/screens/login_screen/CATNET_menu_login1.png" id="2_yu3v1"]
+[ext_resource type="Texture2D" uid="uid://dwysornxw042" path="res://scenes/screens/home_screen/catnettimeout.webp" id="3_b72po"]
+[ext_resource type="Texture2D" uid="uid://csvifa7nkx0xu" path="res://scenes/screens/login_screen/CATNET_menu_login2.png" id="3_lhnbn"]
+[ext_resource type="Script" path="res://scenes/screens/login_screen/loginscript.gd" id="4_y5i8c"]
+[ext_resource type="Script" path="res://scenes/screens/login_screen/highlighted_login.gd" id="5_ufw3e"]
+[ext_resource type="PackedScene" uid="uid://vdrdug4mv88u" path="res://scenes/player/hyppekass.tscn" id="7_hrcjl"]
+[ext_resource type="AudioStream" uid="uid://p4uxeao46svn" path="res://audio/jdespawn.wav" id="8_jvd4o"]
+[ext_resource type="AudioStream" uid="uid://bvydaemrftrgn" path="res://audio/Click2.wav" id="8_lbeu6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bh1ko"]
+
+[node name="LoginScreen" type="Node2D"]
+script = ExtResource("1_po004")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_m50ab")
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+scale = Vector2(1.3617, 1.35929)
+texture = ExtResource("3_b72po")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(453, 352)
+scale = Vector2(9.59671, 1.77387)
+shape = SubResource("CircleShape2D_bh1ko")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-1, 3)
+scale = Vector2(1.34728, 1.07783)
+
+[node name="regular_login" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(453.507, 349.776)
+scale = Vector2(0.742237, 0.927787)
+texture = ExtResource("2_yu3v1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(453.507, 351.631)
+scale = Vector2(4.19339, 2.72286)
+shape = SubResource("CircleShape2D_bh1ko")
+
+[node name="LOGIN" type="Area2D" parent="StaticBody2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/LOGIN"]
+position = Vector2(453.507, 351.631)
+scale = Vector2(4.03447, 4.83204)
+shape = SubResource("CircleShape2D_bh1ko")
+script = ExtResource("4_y5i8c")
+
+[node name="highlighted_login" type="Sprite2D" parent="StaticBody2D2/LOGIN"]
+visible = false
+position = Vector2(452.765, 349.776)
+scale = Vector2(0.742237, 0.927787)
+texture = ExtResource("3_lhnbn")
+script = ExtResource("5_ufw3e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D2/LOGIN"]
+position = Vector2(1674.78, -45.4905)
+scale = Vector2(10.6002, 4.78847)
+stream = ExtResource("8_lbeu6")
+volume_db = 5.0
+
+[node name="Hyppekass" parent="." instance=ExtResource("7_hrcjl")]
+position = Vector2(458, 265)
+
+[node name="StarterPosition" type="Marker2D" parent="."]
+position = Vector2(458, 264)
+
+[node name="hole_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_jvd4o")
+
+[connection signal="body_entered" from="StaticBody2D2/LOGIN" to="StaticBody2D2/LOGIN/CollisionShape2D" method="_on_login_body_entered"]
+[connection signal="body_entered" from="StaticBody2D2/LOGIN" to="StaticBody2D2/LOGIN/highlighted_login" method="_on_login_body_entered"]
+[connection signal="body_exited" from="StaticBody2D2/LOGIN" to="StaticBody2D2/LOGIN/highlighted_login" method="_on_login_body_exited"]

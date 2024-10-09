@@ -1,0 +1,133 @@
+[gd_scene load_steps=20 format=3 uid="uid://clr8ajndmd8cx"]
+
+[ext_resource type="Script" path="res://scenes/screens/home_screen.gd" id="1_7cjx0"]
+[ext_resource type="PackedScene" uid="uid://vdrdug4mv88u" path="res://scenes/player/hyppekass.tscn" id="1_wkald"]
+[ext_resource type="Script" path="res://scenes/interaction/ShutdownTimer.gd" id="2_7yoqk"]
+[ext_resource type="PackedScene" uid="uid://de2hjf0tyr3w8" path="res://scenes/objects/platvorm-clickable.tscn" id="2_8hs0r"]
+[ext_resource type="Texture2D" uid="uid://bd7d7w1bpd6rm" path="res://scenes/screens/CATNET_main_notext.jpg" id="2_86kat"]
+[ext_resource type="Texture2D" uid="uid://b6wnnuvhtne4l" path="res://scenes/screens/CATNET_main_bluetexts1.png" id="4_yts8d"]
+[ext_resource type="Texture2D" uid="uid://b0qc4fx6lfxjk" path="res://scenes/screens/CATNET_main_bluetext3.png" id="5_amj0y"]
+[ext_resource type="FontFile" uid="uid://cngqku3pww2as" path="res://scenes/screens/ARIALBD.TTF" id="5_wtai1"]
+[ext_resource type="Texture2D" uid="uid://bc31plbci8tx8" path="res://scenes/screens/CATNET_main_bluetexts2.png" id="6_fgmbs"]
+[ext_resource type="PackedScene" uid="uid://c1tnhyamr4o4g" path="res://scenes/objects/platvorm.tscn" id="7_iuxkf"]
+[ext_resource type="Texture2D" uid="uid://c23s133sx2b50" path="res://scenes/screens/CATNET_main_blacktest2.png" id="8_0y25d"]
+[ext_resource type="PackedScene" uid="uid://b43346sg2jdkq" path="res://scenes/interaction/InteractionArea.tscn" id="9_6f3ss"]
+[ext_resource type="Texture2D" uid="uid://dvr5skiugera8" path="res://scenes/screens/CATNET_main_blacktest3.png" id="9_j6mge"]
+[ext_resource type="Script" path="res://scenes/objects/platvorm-pets.gd" id="9_xacbg"]
+[ext_resource type="Texture2D" uid="uid://bfpan4ds1ro7f" path="res://scenes/screens/CATNET_main_blacktest4.png" id="10_q5pvj"]
+[ext_resource type="Texture2D" uid="uid://cac4pdxlafbq5" path="res://scenes/screens/CATNET_main_tekst1.png" id="11_fvnmr"]
+[ext_resource type="Texture2D" uid="uid://2pcoh34syhhy" path="res://scenes/screens/CATNET_popup.png" id="13_xyytc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwut8"]
+size = Vector2(576, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pdns"]
+size = Vector2(576, 64)
+
+[node name="HomeScreen" type="Node2D"]
+script = ExtResource("1_7cjx0")
+
+[node name="ShutdownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true
+script = ExtResource("2_7yoqk")
+
+[node name="TimeRemaining" type="RichTextLabel" parent="ShutdownTimer"]
+offset_left = 641.0
+offset_top = 44.0
+offset_right = 687.0
+offset_bottom = 88.0
+theme_override_colors/default_color = Color(0.913725, 0.160784, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("5_wtai1")
+theme_override_font_sizes/normal_font_size = 36
+text = "0"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("2_86kat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(513, 47)
+texture = ExtResource("13_xyytc")
+
+[node name="platvorm-music" parent="." instance=ExtResource("2_8hs0r")]
+position = Vector2(160, 496)
+scale = Vector2(0.253082, 0.359289)
+
+[node name="downloading_music" type="Sprite2D" parent="platvorm-music"]
+position = Vector2(-2.54314e-06, -3.05176e-05)
+scale = Vector2(4.01846, 2.74464)
+texture = ExtResource("4_yts8d")
+
+[node name="platvorm-fashion" parent="." instance=ExtResource("2_8hs0r")]
+position = Vector2(840, 400)
+scale = Vector2(0.252024, 0.184144)
+
+[node name="create_looks" type="Sprite2D" parent="platvorm-fashion"]
+position = Vector2(0, -0.000131916)
+scale = Vector2(3.78436, 4.73596)
+texture = ExtResource("5_amj0y")
+
+[node name="platvorm_pets" parent="." instance=ExtResource("2_8hs0r")]
+unique_name_in_owner = true
+position = Vector2(395, 218)
+scale = Vector2(0.307145, 0.456985)
+script = ExtResource("9_xacbg")
+
+[node name="adorable_baby" type="Sprite2D" parent="platvorm_pets"]
+scale = Vector2(3.30084, 2.13051)
+texture = ExtResource("6_fgmbs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platvorm_pets"]
+shape = SubResource("RectangleShape2D_jwut8")
+
+[node name="InteractionArea2" parent="platvorm_pets" instance=ExtResource("9_6f3ss")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvorm_pets/InteractionArea2"]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_4pdns")
+
+[node name="platvorm" parent="." instance=ExtResource("7_iuxkf")]
+position = Vector2(595, 408)
+scale = Vector2(0.170637, 0.182365)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm"]
+position = Vector2(0, -0.000167343)
+scale = Vector2(5.74531, 5.2774)
+texture = ExtResource("8_0y25d")
+
+[node name="platvorm2" parent="." instance=ExtResource("7_iuxkf")]
+position = Vector2(393, 489)
+scale = Vector2(0.293082, 0.193164)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm2"]
+scale = Vector2(3.45303, 5.21764)
+texture = ExtResource("9_j6mge")
+
+[node name="platvorm3" parent="." instance=ExtResource("7_iuxkf")]
+position = Vector2(734, 217)
+scale = Vector2(0.257435, 0.233263)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm3"]
+scale = Vector2(4.00582, 4.07261)
+texture = ExtResource("10_q5pvj")
+
+[node name="platvorm4" parent="." instance=ExtResource("7_iuxkf")]
+position = Vector2(161, 221)
+scale = Vector2(0.259331, 0.413003)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platvorm4"]
+scale = Vector2(3.76678, 2.27311)
+texture = ExtResource("11_fvnmr")
+
+[node name="Hyppekass" parent="." instance=ExtResource("1_wkald")]
+position = Vector2(152, 144)
+
+[node name="StarterPosition" type="Marker2D" parent="."]
+position = Vector2(152, 144)
+
+[connection signal="timeout" from="ShutdownTimer" to="." method="_on_shutdown_timer_timeout"]
+[connection signal="area_entered" from="platvorm_pets/InteractionArea2" to="platvorm_pets" method="_on_interaction_area_2_area_entered"]
